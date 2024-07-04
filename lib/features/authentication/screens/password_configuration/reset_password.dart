@@ -48,7 +48,7 @@ class ResetPasswordScreen extends StatelessWidget {
                 width: double.infinity,
                 child: ElevatedButton(
                   onPressed: () {
-
+                    Get.off(() => const LoginScreen());
                   },
                   child: const Text(TTexts.done),
                 ),
@@ -57,9 +57,7 @@ class ResetPasswordScreen extends StatelessWidget {
               SizedBox(
                 width: double.infinity,
                 child: TextButton(
-                  onPressed: () {
-
-                  },
+                  onPressed: () {},
                   child: const Text(TTexts.resendEmail),
                 ),
               ),
