@@ -14,12 +14,15 @@ class HomeScreen extends StatelessWidget {
               child: Column(
                 children: [
                   // Appbar
-                  THomeAppBar()
+                  THomeAppBar(),
+                  SizedBox(height: TSizes.spaceBtwSections),
 
                   // Searchbar
-
+                  TSearchContainer(text: 'Search in Store'),
+                  SizedBox(height: TSizes.spaceBtwSections),
 
                   // Categories
+                  THomeCategories()
                 ],
               ),
             )
@@ -29,3 +32,4 @@ class HomeScreen extends StatelessWidget {
     );
   }
 }
+
