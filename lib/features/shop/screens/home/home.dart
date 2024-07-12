@@ -5,12 +5,12 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    return Scaffold(
       body: SingleChildScrollView(
         child: Column(
           children: [
             // Header
-            TPrimaryHeaderContainer(
+            const TPrimaryHeaderContainer(
               child: Column(
                 children: [
                   // Appbar
@@ -25,11 +25,34 @@ class HomeScreen extends StatelessWidget {
                   THomeCategories()
                 ],
               ),
-            )
+            ),
+
+            // Body
+            Padding(
+              padding: const EdgeInsets.all(TSizes.defaultSpace),
+              child: Column(
+                children: [
+                  // Promo Slider
+                  const TPromoSlider(
+                    banners: [
+                      TImages.promoBanner1,
+                      TImages.promoBanner2,
+                      TImages.promoBanner3,
+                    ],
+                  ),
+                  const SizedBox(height: TSizes.spaceBtwSections),
+
+                  // Popular Products
+                  TGridLayout(
+                    itemCount: 4,
+                    itemBuilder: (_, index) => const TProductCardVertical(),
+                  ),
+                ],
+              ),
+            ),
           ],
         ),
       ),
     );
   }
 }
-
