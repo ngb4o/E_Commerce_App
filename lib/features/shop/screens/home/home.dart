@@ -18,7 +18,7 @@ class HomeScreen extends StatelessWidget {
                   SizedBox(height: TSizes.spaceBtwSections),
 
                   // Searchbar
-                  TSearchContainer(text: 'Search in Store'),
+                  TSearchContainer(text: 'Search in Store', showBorder: false,),
                   SizedBox(height: TSizes.spaceBtwSections),
 
                   // Categories
@@ -41,6 +41,10 @@ class HomeScreen extends StatelessWidget {
                     ],
                   ),
                   const SizedBox(height: TSizes.spaceBtwSections),
+
+                  // Heading
+                  const TSectionHeading(title: 'Popular Products'),
+                  const SizedBox(height: TSizes.spaceBtwItems),
 
                   // Popular Products
                   TGridLayout(
