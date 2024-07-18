@@ -34,7 +34,7 @@ class THomeCategories extends StatelessWidget {
                 );
               },
             ),
-          )
+          ),
         ],
       ),
     );
