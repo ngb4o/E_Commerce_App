@@ -9,8 +9,7 @@ class StoreScreen extends StatelessWidget {
       length: 5,
       child: Scaffold(
         appBar: TAppbar(
-          title:
-              Text('Store', style: Theme.of(context).textTheme.headlineMedium),
+          title: Text('Store', style: Theme.of(context).textTheme.headlineMedium),
           actions: [TCartCounterIcon(onPressed: () {})],
         ),
         body: NestedScrollView(
@@ -21,9 +20,8 @@ class StoreScreen extends StatelessWidget {
                 automaticallyImplyLeading: false,
                 pinned: true,
                 floating: true,
-                backgroundColor: THelperFunctions.isDarkMode(context)
-                    ? TColors.black
-                    : TColors.white,
+                backgroundColor:
+                    THelperFunctions.isDarkMode(context) ? TColors.black : TColors.white,
                 expandedHeight: 440,
                 flexibleSpace: Padding(
                   padding: const EdgeInsets.all(TSizes.defaultSpace),
@@ -41,8 +39,7 @@ class StoreScreen extends StatelessWidget {
                       const SizedBox(height: TSizes.spaceBtwSections),
 
                       // Featured Brands
-                      TSectionHeading(
-                          title: 'Featured Brands', onPressed: () {}),
+                      TSectionHeading(title: 'Featured Brands', onPressed: () {}),
                       const SizedBox(height: TSizes.spaceBtwItems / 1.5),
 
                       // Brands GRID
