@@ -28,7 +28,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                   ),
 
                   // User profile Card
-                  const TUserProfileTile(),
+                  TUserProfileTile(onPressed: () => Get.to(()=> const ProfileScreen())),
                   const SizedBox(height: TSizes.spaceBtwSections),
                 ],
               ),
@@ -126,7 +126,6 @@ class _SettingsScreenState extends State<SettingsScreen> {
                     child: OutlinedButton(onPressed: () {}, child: const Text('Logout')),
                   ),
 
-                  const SizedBox(height: TSizes.spaceBtwSections * 2.5),
                 ],
               ),
             )
