@@ -22,7 +22,9 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
             // Product Details
             Padding(
               padding: const EdgeInsets.only(
-                  right: TSizes.defaultSpace, left: TSizes.defaultSpace, bottom: TSizes.defaultSpace),
+                  right: TSizes.defaultSpace,
+                  left: TSizes.defaultSpace,
+                  bottom: TSizes.defaultSpace),
               child: Column(
                 children: [
                   // Rating  & Share Button
@@ -62,7 +64,10 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       const TSectionHeading(title: 'Reviews(199)', showActionButton: false),
-                      IconButton(onPressed: () {}, icon: const Icon(Iconsax.arrow_right_3, size: 18))
+                      IconButton(
+                        onPressed: () => Get.to(() => const ProductReviewsScreen()),
+                        icon: const Icon(Iconsax.arrow_right_3, size: 18),
+                      )
                     ],
                   ),
                 ],
