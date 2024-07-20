@@ -1,5 +1,5 @@
+import 'package:ee_commerce_app/features/personalization/screens/settings/settings_imports.dart';
 import 'package:ee_commerce_app/features/shop/screens/home/home_imports.dart';
-import 'package:ee_commerce_app/features/shop/screens/profile/profile_imports.dart';
 import 'package:ee_commerce_app/features/shop/screens/store/store_imports.dart';
 import 'package:ee_commerce_app/features/shop/screens/wishlist/wishlist_imports.dart';
 import 'package:ee_commerce_app/utils/constants/colors.dart';
@@ -26,8 +26,7 @@ class NavigationMenu extends StatelessWidget {
           selectedIndex: controller.selectedIndex.value,
           onDestinationSelected: (index) {
             controller.selectedIndex.value = index;
-            },
-
+          },
           destinations: const [
             NavigationDestination(icon: Icon(Iconsax.home), label: 'Home'),
             NavigationDestination(icon: Icon(Iconsax.shop), label: 'Store'),
@@ -44,10 +43,10 @@ class NavigationMenu extends StatelessWidget {
 class NavigationController extends GetxController {
   final Rx<int> selectedIndex = 0.obs;
 
-  final screens = const [
-    HomeScreen(),
-    StoreScreen(),
-    WishlistScreen(),
-    ProfileScreen(),
+  final screens = [
+    const HomeScreen(),
+    const StoreScreen(),
+    const FavouriteScreen(),
+    const SettingsScreen()
   ];
 }

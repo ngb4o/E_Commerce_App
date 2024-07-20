@@ -3,11 +3,13 @@ import 'package:ee_commerce_app/common/widgets/custom_shapes/containers/t_rounde
 import 'package:ee_commerce_app/common/widgets/images/t_rounded_image.dart';
 import 'package:ee_commerce_app/common/widgets/texts/t_product_title_text.dart';
 import 'package:ee_commerce_app/common/widgets/texts/t_product_price_text.dart';
+import 'package:ee_commerce_app/features/shop/screens/product_details/product_detail_imports.dart';
 import 'package:ee_commerce_app/utils/constants/colors.dart';
 import 'package:ee_commerce_app/utils/constants/image_strings.dart';
 import 'package:ee_commerce_app/utils/constants/sizes.dart';
 import 'package:ee_commerce_app/utils/helpers/helper_functions.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
 
 import '../../icons/t_circular_icon.dart';
@@ -19,7 +21,7 @@ class TProductCardVertical extends StatelessWidget {
   Widget build(BuildContext context) {
     final dark = THelperFunctions.isDarkMode(context);
     return GestureDetector(
-      onTap: () {},
+      onTap: () => Get.to(() => const ProductDetailScreen()),
       child: Container(
         width: 180,
         padding: const EdgeInsets.all(1),
@@ -55,10 +57,7 @@ class TProductCardVertical extends StatelessWidget {
                       ),
                       child: Text(
                         '25%',
-                        style: Theme.of(context)
-                            .textTheme
-                            .labelLarge!
-                            .apply(color: TColors.black),
+                        style: Theme.of(context).textTheme.labelLarge!.apply(color: TColors.black),
                       ),
                     ),
                   ),
@@ -104,36 +103,41 @@ class TProductCardVertical extends StatelessWidget {
                       ),
                     ],
                   ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      // Price
-                      TProductPriceText(price: '35'),
-
-                      // Add to Cart Button
-                      Container(
-                        decoration: const BoxDecoration(
-                            color: TColors.dark,
-                            borderRadius: BorderRadius.only(
-                              topLeft: Radius.circular(TSizes.cardRadiusMd),
-                              bottomRight:
-                                  Radius.circular(TSizes.productImageRadius),
-                            )),
-                        child: const SizedBox(
-                          width: TSizes.iconLg * 1.2,
-                          height: TSizes.iconLg * 1.2,
-                          child: Center(
-                            child: Icon(
-                              Iconsax.add,
-                              color: TColors.white,
-                            ),
-                          ),
-                        ),
-                      )
-                    ],
-                  )
                 ],
               ),
+            ),
+
+            const Spacer(),
+
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                // Price
+                const Padding(
+                  padding: EdgeInsets.only(left: TSizes.sm),
+                  child: TProductPriceText(price: '35.0'),
+                ),
+
+                // Add to Cart Button
+                Container(
+                  decoration: const BoxDecoration(
+                      color: TColors.dark,
+                      borderRadius: BorderRadius.only(
+                        topLeft: Radius.circular(TSizes.cardRadiusMd),
+                        bottomRight: Radius.circular(TSizes.productImageRadius),
+                      )),
+                  child: const SizedBox(
+                    width: TSizes.iconLg * 1.2,
+                    height: TSizes.iconLg * 1.2,
+                    child: Center(
+                      child: Icon(
+                        Iconsax.add,
+                        color: TColors.white,
+                      ),
+                    ),
+                  ),
+                )
+              ],
             )
           ],
         ),
