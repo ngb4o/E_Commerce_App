@@ -29,7 +29,7 @@ class THomeAppBar extends StatelessWidget {
       ),
       actions: [
         TCartCounterIcon(
-          onPressed: () {},
+          onPressed: () => Get.to(()=> const CartScreen()),
           iconColor: TColors.white,
         )
       ],

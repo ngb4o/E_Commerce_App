@@ -1,4 +1,6 @@
+import 'package:ee_commerce_app/features/shop/screens/cart/cart_imports.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 import '../../../../../common/widgets/appbar/appbar.dart';
 import '../../../../../common/widgets/image_text_widgets/vertical_image_text.dart';

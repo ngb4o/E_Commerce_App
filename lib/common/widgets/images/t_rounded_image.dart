@@ -41,6 +41,7 @@ class TRoundedImage extends StatelessWidget {
         decoration: BoxDecoration(
           border: border,
           borderRadius: BorderRadius.circular(borderRadius),
+          color: backgroundColor
         ),
         child: ClipRRect(
           borderRadius: applyImageRadius
