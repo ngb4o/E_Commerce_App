@@ -18,7 +18,15 @@ class UserAddressScreen extends StatelessWidget {
         showBackArrow: true,
       ),
       body: SingleChildScrollView(
-
+        child: Padding(
+          padding: EdgeInsets.all(TSizes.defaultSpace),
+          child: Column(
+            children: [
+              TSingleAddress(selectedAddress: true),
+              TSingleAddress(selectedAddress: false),
+            ],
+          ),
+        ),
       ),
     );
   }
