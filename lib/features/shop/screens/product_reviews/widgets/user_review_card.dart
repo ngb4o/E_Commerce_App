@@ -64,7 +64,7 @@ class UserReviewsCard extends StatelessWidget {
                 const SizedBox(height: TSizes.spaceBtwItems),
 
                 const ReadMoreText(
-                  'The user interface of the app is quite intvite. I was able to navigate and make purchases seamlessly. Great job!',
+                  'The user interface of the app is quite invite. I was able to navigate and make purchases seamlessly. Great job!',
                   trimLines: 2,
                   trimMode: TrimMode.Line,
                   trimExpandedText: ' show less',

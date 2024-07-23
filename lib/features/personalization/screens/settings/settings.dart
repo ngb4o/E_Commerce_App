@@ -28,7 +28,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                   ),
 
                   // User profile Card
-                  TUserProfileTile(onPressed: () => Get.to(()=> const ProfileScreen())),
+                  TUserProfileTile(onPressed: () => Get.to(() => const ProfileScreen())),
                   const SizedBox(height: TSizes.spaceBtwSections),
                 ],
               ),
@@ -46,10 +46,11 @@ class _SettingsScreenState extends State<SettingsScreen> {
                   ),
                   const SizedBox(height: TSizes.spaceBtwItems),
 
-                  const TSettingsMenuTile(
+                  TSettingsMenuTile(
                     title: 'My Addresses',
                     subtitle: 'Set shopping delivery address',
                     icon: Iconsax.safe_home,
+                    onTap: () => Get.to(() => const UserAddressScreen()),
                   ),
                   const TSettingsMenuTile(
                     title: 'My Cart',
@@ -125,7 +126,6 @@ class _SettingsScreenState extends State<SettingsScreen> {
                     width: double.infinity,
                     child: OutlinedButton(onPressed: () {}, child: const Text('Logout')),
                   ),
-
                 ],
               ),
             )
