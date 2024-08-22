@@ -11,38 +11,18 @@ class CartScreen extends StatelessWidget {
         title: Text('Cart', style: Theme.of(context).textTheme.headlineSmall),
         showBackArrow: true,
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(TSizes.defaultSpace),
-        child: ListView.separated(
-          shrinkWrap: true,
-          itemCount: 10,
-          separatorBuilder: (_, __) => const SizedBox(height: TSizes.spaceBtwSections),
-          itemBuilder: (_, index) {
-            return const Column(
-              children: [
-                TCartItem(),
-                SizedBox(height: TSizes.spaceBtwItems),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Row(
-                      children: [
-                        SizedBox(width: 70),
-                        // Add Remove Buttons
-                        TProductQuantityWithAddRemove(),
-                      ],
-                    ),
-                    TProductPriceText(price: '256')
-                  ],
-                )
-              ],
-            );
-          },
-        ),
+      body: const Padding(
+        padding: EdgeInsets.all(TSizes.defaultSpace),
+        child: TCartItems(),
       ),
+
+      // Checkout Button
       bottomNavigationBar: Padding(
         padding: const EdgeInsets.all(TSizes.defaultSpace),
-        child: ElevatedButton(onPressed: () {}, child: const Text('Checkout \$256.0')),
+        child: ElevatedButton(
+          onPressed: () => Get.to(() => const CheckoutScreen()),
+          child: const Text('Checkout \$256.0'),
+        ),
       ),
     );
   }
