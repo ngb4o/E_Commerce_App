@@ -36,7 +36,7 @@ class TBillingAddressSection extends StatelessWidget {
             const SizedBox(width: TSizes.spaceBtwItems),
             Flexible(
               child: Text(
-                '71 Nguyen Dinh Hien, Ngu Hanh Son, Da Nang',
+                '71 Nguyen Dinh Hien, Da Nang',
                 style: Theme.of(context).textTheme.bodyMedium,
                 overflow: TextOverflow.ellipsis,
               ),
