@@ -40,10 +40,7 @@ class TProductCardVertical extends StatelessWidget {
               child: Stack(
                 children: [
                   // Thumbnail image
-                  const TRoundedImage(
-                    imageUrl: TImages.productImage1,
-                    applyImageRadius: true,
-                  ),
+                  const TRoundedImage(imageUrl: TImages.productImage1, applyImageRadius: true),
 
                   // Sale Tag
                   Positioned(
