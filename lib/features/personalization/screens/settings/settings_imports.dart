@@ -3,6 +3,7 @@ import 'package:ee_commerce_app/common/widgets/custom_shapes/containers/primary_
 import 'package:ee_commerce_app/common/widgets/texts/section_heading.dart';
 import 'package:ee_commerce_app/features/personalization/screens/address/address_imports.dart';
 import 'package:ee_commerce_app/features/personalization/screens/profile/profile_imports.dart';
+import 'package:ee_commerce_app/features/shop/screens/order/order_imports.dart';
 import 'package:ee_commerce_app/utils/constants/colors.dart';
 import 'package:ee_commerce_app/utils/constants/sizes.dart';
 import 'package:flutter/material.dart';

@@ -22,8 +22,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                   TAppbar(
                     title: Text(
                       'Account',
-                      style:
-                          Theme.of(context).textTheme.headlineMedium!.apply(color: TColors.white),
+                      style: Theme.of(context).textTheme.headlineMedium!.apply(color: TColors.white),
                     ),
                   ),
 
@@ -57,10 +56,11 @@ class _SettingsScreenState extends State<SettingsScreen> {
                     subtitle: 'Add, remove products and move to checkout',
                     icon: Iconsax.shopping_cart,
                   ),
-                  const TSettingsMenuTile(
+                  TSettingsMenuTile(
                     title: 'My Orders',
                     subtitle: 'In-progress and Completed Orders',
                     icon: Iconsax.bag_tick,
+                    onTap: () => Get.to(() => const OrderScreen()),
                   ),
                   const TSettingsMenuTile(
                     title: 'Bank Account',
