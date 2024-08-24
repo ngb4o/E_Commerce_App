@@ -1,6 +1,4 @@
-import 'package:ee_commerce_app/features/personalization/screens/profile/profile_imports.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
 
 import '../../../utils/constants/colors.dart';

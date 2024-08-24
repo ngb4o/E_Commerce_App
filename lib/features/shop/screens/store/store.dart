@@ -20,8 +20,7 @@ class StoreScreen extends StatelessWidget {
                 automaticallyImplyLeading: false,
                 pinned: true,
                 floating: true,
-                backgroundColor:
-                    THelperFunctions.isDarkMode(context) ? TColors.black : TColors.white,
+                backgroundColor: THelperFunctions.isDarkMode(context) ? TColors.black : TColors.white,
                 expandedHeight: 440,
                 flexibleSpace: Padding(
                   padding: const EdgeInsets.all(TSizes.defaultSpace),
@@ -39,7 +38,8 @@ class StoreScreen extends StatelessWidget {
                       const SizedBox(height: TSizes.spaceBtwSections),
 
                       // Featured Brands
-                      TSectionHeading(title: 'Featured Brands', onPressed: () {}),
+                      TSectionHeading(
+                          title: 'Featured Brands', onPressed: () => Get.to(() => const AllBrandsScreen())),
                       const SizedBox(height: TSizes.spaceBtwItems / 1.5),
 
                       // Brands GRID
@@ -47,7 +47,7 @@ class StoreScreen extends StatelessWidget {
                         itemCount: 4,
                         mainAxisExtent: 75,
                         itemBuilder: (_, index) {
-                          return const TBrandCard();
+                          return const TBrandCard(showBorder: true);
                         },
                       ),
                     ],

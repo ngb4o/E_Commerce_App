@@ -1,5 +1,4 @@
 import 'package:ee_commerce_app/common/widgets/custom_shapes/containers/t_rounded_container.dart';
-import 'package:ee_commerce_app/common/widgets/images/t_circular_image.dart';
 import 'package:ee_commerce_app/common/widgets/products/ratings/rating_indicator.dart';
 import 'package:ee_commerce_app/utils/constants/image_strings.dart';
 import 'package:ee_commerce_app/utils/constants/sizes.dart';

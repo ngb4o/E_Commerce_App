@@ -6,7 +6,6 @@ import 'package:ee_commerce_app/utils/constants/colors.dart';
 import 'package:ee_commerce_app/utils/constants/image_strings.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 
 import '../../../../common/widgets/appbar/appbar.dart';
 import '../../../../common/widgets/products/cart/coupon_widget.dart';

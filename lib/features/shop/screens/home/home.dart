@@ -18,13 +18,15 @@ class HomeScreen extends StatelessWidget {
                   SizedBox(height: TSizes.spaceBtwSections),
 
                   // Searchbar
-                  TSearchContainer(text: 'Search in Store', showBorder: false,),
+                  TSearchContainer(
+                    text: 'Search in Store',
+                    showBorder: false,
+                  ),
                   SizedBox(height: TSizes.spaceBtwSections),
 
                   // Categories
                   THomeCategories(),
                   SizedBox(height: TSizes.spaceBtwSections),
-
                 ],
               ),
             ),
@@ -45,7 +47,10 @@ class HomeScreen extends StatelessWidget {
                   const SizedBox(height: TSizes.spaceBtwSections),
 
                   // Heading
-                  const TSectionHeading(title: 'Popular Products'),
+                  TSectionHeading(
+                    title: 'Popular Products',
+                    onPressed: () => Get.to(() => const AllProductsScreen()),
+                  ),
                   const SizedBox(height: TSizes.spaceBtwItems),
 
                   // Popular Products

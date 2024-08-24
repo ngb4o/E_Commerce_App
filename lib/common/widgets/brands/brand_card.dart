@@ -4,8 +4,10 @@ class TBrandCard extends StatelessWidget {
   const TBrandCard({
     super.key,
     this.onTap,
+    required this.showBorder,
   });
 
+  final bool showBorder;
   final VoidCallback? onTap;
 
   @override
@@ -15,7 +17,7 @@ class TBrandCard extends StatelessWidget {
       // Container Design
       child: TRoundedContainer(
         padding: const EdgeInsets.all(TSizes.sm),
-        showBorder: true,
+        showBorder: showBorder,
         backgroundColor: Colors.transparent,
         child: Row(
           children: [
@@ -24,9 +26,7 @@ class TBrandCard extends StatelessWidget {
               child: TCircularImage(
                 image: TImages.nikeLogo,
                 backgroundColor: Colors.transparent,
-                overlayColor: THelperFunctions.isDarkMode(context)
-                    ? TColors.white
-                    : TColors.black,
+                overlayColor: THelperFunctions.isDarkMode(context) ? TColors.white : TColors.black,
               ),
             ),
             const SizedBox(width: TSizes.spaceBtwItems / 2),
