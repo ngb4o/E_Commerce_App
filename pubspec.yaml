@@ -2,47 +2,56 @@ name: ee_commerce_app
 description: "A new Flutter project."
 publish_to: 'none'
 
-
 version: 1.0.0+1
 
 environment:
   sdk: '>=3.3.4 <4.0.0'
 
-
 dependencies:
   flutter:
     sdk: flutter
 
-  iconsax: ^0.0.8
-  cupertino_icons: ^1.0.6
-  get: ^4.6.6
-  get_storage: ^2.1.1
-  bloc: ^8.1.4
-  flutter_bloc: ^8.1.6
-  flutter_screenutil: ^5.9.3
-  velocity_x: ^4.2.1
-  http: ^1.2.1
-  intl: ^0.19.0
-  logger: ^2.3.0
-  url_launcher: ^6.3.0
-  flutter_native_splash: ^2.4.0
-  smooth_page_indicator: ^1.1.0
-  carousel_slider: ^4.2.1
-  readmore: ^3.0.0
-  flutter_rating_bar: ^4.0.1
-  firebase_core: ^3.4.0
+  # Icons
+  iconsax: ^0.0.8                     # Gói cung cấp bộ icon Iconsax
+  cupertino_icons: ^1.0.6             # Icon theo phong cách Cupertino
 
+  # State management
+  get: ^4.6.6                         # Quản lý trạng thái với GetX
+  get_storage: ^2.1.1                 # Lưu trữ dữ liệu trên thiết bị với GetX
+  bloc: ^8.1.4                        # Quản lý trạng thái với Bloc
+  flutter_bloc: ^8.1.6                # Bloc cho Flutter
+
+  # UI/UX Enhancements
+  flutter_screenutil: ^5.9.3          # Hỗ trợ thiết kế giao diện Responsive
+  velocity_x: ^4.2.1                  # Thư viện hỗ trợ xây dựng giao diện nhanh chóng
+  smooth_page_indicator: ^1.1.0       # Hiệu ứng chuyển trang mượt mà
+  carousel_slider: ^4.2.1             # Slider hình ảnh cho carousel
+  readmore: ^3.0.0                    # Đọc thêm hoặc thu gọn nội dung văn bản
+  flutter_rating_bar: ^4.0.1          # Thanh đánh giá rating bar
+
+  # Networking
+  http: ^1.2.1                        # HTTP requests
+  url_launcher: ^6.3.0                # Mở URL hoặc ứng dụng khác từ app
+
+  # Internationalization
+  intl: ^0.19.0                       # Hỗ trợ đa ngôn ngữ
+
+  # Logging
+  logger: ^2.3.0                      # Thư viện hỗ trợ ghi log
+
+  # Firebase
+  firebase_core: ^3.4.0               # Cốt lõi của Firebase
+
+  # Splash Screen
+  flutter_native_splash: ^2.4.0       # Tạo splash screen cho ứng dụng
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
 
-
-  flutter_lints: ^3.0.0
-
+  flutter_lints: ^3.0.0               # Bộ quy tắc linting cho Flutter
 
 flutter:
-
   uses-material-design: true
 
   assets:
