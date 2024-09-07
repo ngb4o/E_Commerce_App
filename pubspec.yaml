@@ -28,6 +28,8 @@ dependencies:
   carousel_slider: ^4.2.1             # Slider hình ảnh cho carousel
   readmore: ^3.0.0                    # Đọc thêm hoặc thu gọn nội dung văn bản
   flutter_rating_bar: ^4.0.1          # Thanh đánh giá rating bar
+  lottie: ^3.1.2
+  connectivity_plus: ^5.0.1
 
   # Networking
   http: ^1.2.1                        # HTTP requests
@@ -41,6 +43,8 @@ dependencies:
 
   # Firebase
   firebase_core: ^3.4.0               # Cốt lõi của Firebase
+  firebase_auth: ^5.2.0
+  cloud_firestore: ^5.4.0
 
   # Splash Screen
   flutter_native_splash: ^2.4.0       # Tạo splash screen cho ứng dụng

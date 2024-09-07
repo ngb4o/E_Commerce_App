@@ -124,7 +124,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                   const SizedBox(height: TSizes.spaceBtwSections),
                   SizedBox(
                     width: double.infinity,
-                    child: OutlinedButton(onPressed: () {}, child: const Text('Logout')),
+                    child: OutlinedButton(onPressed: ()=> AuthenticationRepository.instance.logout(), child: const Text('Logout')),
                   ),
                 ],
               ),
