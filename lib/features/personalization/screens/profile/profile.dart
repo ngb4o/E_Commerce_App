@@ -10,6 +10,7 @@ class ProfileScreen extends StatefulWidget {
 class _ProfileState extends State<ProfileScreen> {
   @override
   Widget build(BuildContext context) {
+    final controller = UserController.instance;
     return Scaffold(
       appBar: const TAppbar(
         title: Text('Profile'),
@@ -42,8 +43,8 @@ class _ProfileState extends State<ProfileScreen> {
               const TSectionHeading(title: 'Profile Information', showActionButton: false),
               const SizedBox(height: TSizes.spaceBtwItems),
 
-              TProfileMenu(title: 'Name', value: 'Ngb4o', onTap: () {}),
-              TProfileMenu(title: 'Username', value: 'Gi4_B4o', onTap: () {}),
+              TProfileMenu(title: 'Name', value: controller.user.value.fullName, onTap: () {}),
+              TProfileMenu(title: 'Username', value: controller.user.value.username, onTap: () {}),
 
               const SizedBox(height: TSizes.spaceBtwItems),
               const Divider(),
@@ -53,9 +54,9 @@ class _ProfileState extends State<ProfileScreen> {
               const TSectionHeading(title: 'Profile Information', showActionButton: false),
               const SizedBox(height: TSizes.spaceBtwItems),
 
-              TProfileMenu(title: 'User ID', value: '23732', onTap: () {}, icon: Iconsax.copy),
-              TProfileMenu(title: 'E-mail', value: 'ngbao08052003@gmail.com', onTap: () {}),
-              TProfileMenu(title: 'Phone Number', value: '+84 962492787', onTap: () {}),
+              TProfileMenu(title: 'User ID', value: controller.user.value.id, onTap: () {}, icon: Iconsax.copy),
+              TProfileMenu(title: 'E-mail', value: controller.user.value.email, onTap: () {}),
+              TProfileMenu(title: 'Phone Number', value: controller.user.value.phoneNumber, onTap: () {}),
               TProfileMenu(title: 'Gender', value: 'Male', onTap: () {}),
               TProfileMenu(title: 'Date of Birth', value: '8 May, 2003', onTap: () {}),
               const Divider(),

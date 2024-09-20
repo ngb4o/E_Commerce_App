@@ -23,7 +23,7 @@ class UserModel {
       required this.profilePicture});
 
   // Helper function to get the full name
-  String get fullName => '$firstName + $lastName';
+  String get fullName => '$firstName $lastName';
 
   // Helper function to format phone number
   String get formattedPhoneNo => TFormatter.formatPhoneNumber(phoneNumber);
@@ -38,7 +38,7 @@ class UserModel {
     String lastName = nameParts.length > 1 ? nameParts[1].toLowerCase() : "";
 
     String camelCaseUserName = '$firstName$lastName';
-    String usernameWithPrefix = 'cwt_$camelCaseUserName';
+    String usernameWithPrefix = 'b4o_$camelCaseUserName';
     return usernameWithPrefix;
   }
 

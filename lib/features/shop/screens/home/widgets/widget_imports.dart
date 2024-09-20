@@ -1,7 +1,10 @@
+import 'package:ee_commerce_app/common/widgets/loaders/shimmer.dart';
+import 'package:ee_commerce_app/features/personalization/controller/user_controller.dart';
 import 'package:ee_commerce_app/features/shop/screens/cart/cart_imports.dart';
 import 'package:ee_commerce_app/features/shop/screens/sub_category/sub_categories_imports.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:get/get_state_manager/get_state_manager.dart';
 
 import '../../../../../common/widgets/appbar/appbar.dart';
 import '../../../../../common/widgets/image_text_widgets/vertical_image_text.dart';

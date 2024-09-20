@@ -1,4 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:ee_commerce_app/data/repositories/authentication/authentication_repository.dart';
 import 'package:get/get.dart';
 
 import '../../../features/personalization/models/user_model.dart';
@@ -18,9 +19,75 @@ class UserRepository extends GetxController {
       await _db.collection('Users').doc(user.id).set(user.toJson());
     } on FirebaseException catch (e) {
       throw TFirebaseAuthException(e.code).message;
-    } on FormatException catch(_) {
+    } on FormatException catch (_) {
       throw const TFormatException();
-    } on TPlatformException catch(e) {
+    } on TPlatformException catch (e) {
+      throw TPlatformException(e.code).message;
+    } catch (e) {
+      throw 'Something went wrong. Please try again!';
+    }
+  }
+
+  // Function to fetch user details based on userID
+  Future<UserModel> fetchUserDetails() async {
+    try {
+      final documentSnapshot =
+          await _db.collection('Users').doc(AuthenticationRepository.instance.authUser?.uid).get();
+      if (documentSnapshot.exists) {
+        return UserModel.fromSnapshot(documentSnapshot);
+      } else {
+        return UserModel.empty();
+      }
+    } on FirebaseException catch (e) {
+      throw TFirebaseAuthException(e.code).message;
+    } on FormatException catch (_) {
+      throw const TFormatException();
+    } on TPlatformException catch (e) {
+      throw TPlatformException(e.code).message;
+    } catch (e) {
+      throw 'Something went wrong. Please try again!';
+    }
+  }
+
+  // Function to update user data in firestore
+  Future<void> updateUserDetails(UserModel updateUser) async {
+    try {
+      await _db.collection('Users').doc(updateUser.id).update(updateUser.toJson());
+    } on FirebaseException catch (e) {
+      throw TFirebaseAuthException(e.code).message;
+    } on FormatException catch (_) {
+      throw const TFormatException();
+    } on TPlatformException catch (e) {
+      throw TPlatformException(e.code).message;
+    } catch (e) {
+      throw 'Something went wrong. Please try again!';
+    }
+  }
+
+  // Update any field in specific Users Collection
+  Future<void> updateSingleField(Map<String, dynamic> json) async {
+    try {
+      await _db.collection('Users').doc().update(json);
+    } on FirebaseException catch (e) {
+      throw TFirebaseAuthException(e.code).message;
+    } on FormatException catch (_) {
+      throw const TFormatException();
+    } on TPlatformException catch (e) {
+      throw TPlatformException(e.code).message;
+    } catch (e) {
+      throw 'Something went wrong. Please try again!';
+    }
+  }
+
+  // Function to remove user data from Firestore
+  Future<void> removeUserRecord(String userId) async {
+    try {
+      await _db.collection('Users').doc(userId).delete();
+    } on FirebaseException catch (e) {
+      throw TFirebaseAuthException(e.code).message;
+    } on FormatException catch (_) {
+      throw const TFormatException();
+    } on TPlatformException catch (e) {
       throw TPlatformException(e.code).message;
     } catch (e) {
       throw 'Something went wrong. Please try again!';
