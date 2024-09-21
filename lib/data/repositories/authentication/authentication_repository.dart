@@ -1,3 +1,4 @@
+import 'package:ee_commerce_app/data/repositories/user/user_repository.dart';
 import 'package:ee_commerce_app/features/authentication/screens/login/login_imports.dart';
 import 'package:ee_commerce_app/features/authentication/screens/onboarding/onboarding_imports.dart';
 import 'package:ee_commerce_app/features/authentication/screens/signup/signup_imports.dart';
@@ -122,8 +123,25 @@ class AuthenticationRepository extends GetxController {
   }
 
   // [ReAuthenticate] - ReAuthenticate User
+  Future<void> reAuthenticateWithEmailAndPassword(String email, String password) async {
+    try {
+      // Create a credential
+      AuthCredential credential = EmailAuthProvider.credential(email: email, password: password);
 
-
+      // ReAuthenticate
+      await _auth.currentUser!.reauthenticateWithCredential(credential);
+    } on FirebaseAuthException catch (e) {
+      throw TFirebaseAuthException(e.code).message;
+    } on FirebaseException catch (e) {
+      throw TFirebaseException(e.code).message;
+    } on FormatException catch (_) {
+      throw const TFormatException();
+    } on PlatformException catch (e) {
+      throw TPlatformException(e.code).message;
+    } catch (e) {
+      throw 'Something went wrong. Please try again!';
+    }
+  }
 
 /*------------------------------- Federated identity & social sign in -------------------------------*/
 
@@ -181,5 +199,22 @@ class AuthenticationRepository extends GetxController {
     }
   }
 
-// [DeleteUser] - Remove user Auth and Firestore account
+  // [DeleteUser] - Remove user Auth and Firestore account
+  Future<void> deleteAccount() async {
+    try {
+      await UserRepository.instance.removeUserRecord(_auth.currentUser!.uid);
+      await _auth.currentUser?.delete();
+      Get.offAll(() => const LoginScreen());
+    } on FirebaseAuthException catch (e) {
+      throw TFirebaseAuthException(e.code).message;
+    } on FirebaseException catch (e) {
+      throw TFirebaseException(e.code).message;
+    } on FormatException catch (_) {
+      throw const TFormatException();
+    } on PlatformException catch (e) {
+      throw TPlatformException(e.code).message;
+    } catch (e) {
+      throw 'Something went wrong. Please try again!';
+    }
+  }
 }

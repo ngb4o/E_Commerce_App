@@ -59,6 +59,9 @@ class LoginController extends GetxController {
         password.text.trim(),
       );
 
+      // Fetch user data after login
+      await userController.fetchUserRecord();
+
       // Remove Loader
       TFullScreenLoader.stopLoading();
 
@@ -89,12 +92,14 @@ class LoginController extends GetxController {
       // Save user record
       await userController.saveUserRecord(userCredentials);
 
+      // Fetch user data after login
+      await userController.fetchUserRecord();
+
       // Remove loader
       TFullScreenLoader.stopLoading();
 
       // Redirect
       AuthenticationRepository.instance.screenRedirect();
-
     } catch (e) {
       // Remove loader
       TFullScreenLoader.stopLoading();
