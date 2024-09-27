@@ -11,16 +11,20 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:image_picker/image_picker.dart';
 
 class UserController extends GetxController {
   static UserController get instance => Get.find();
 
+  Rx<UserModel> user = UserModel.empty().obs;
+
+  GlobalKey<FormState> reAuthFormKey = GlobalKey<FormState>();
+
   final hidePassword = true.obs;
+  final imageUploading = false.obs;
   final verifyEmail = TextEditingController();
   final verifyPassword = TextEditingController();
-  GlobalKey<FormState> reAuthFormKey = GlobalKey<FormState>();
   final profileLoading = false.obs;
-  Rx<UserModel> user = UserModel.empty().obs;
   final userRepository = Get.put(UserRepository());
 
   @override
@@ -45,6 +49,9 @@ class UserController extends GetxController {
   // Save user record from any Registration provider
   Future<void> saveUserRecord(UserCredential? userCredentials) async {
     try {
+      // Refresh user record
+      await fetchUserRecord();
+
       if (userCredentials != null) {
         // Convert name to first and last name
         final nameParts = UserModel.nameParts(userCredentials.user!.displayName ?? '');
@@ -91,16 +98,14 @@ class UserController extends GetxController {
 
           // Show message success
           TLoaders.successSnackBar(
-              title: 'Account Deleted',
-              message:
-                  'Your account has been successfully deleted. '
-                      'We\'re sad to see you go, but we wish you all the best in your future endeavors.',
-              duration: 5,
+            title: 'Account Deleted',
+            message: 'Your account has been successfully deleted. '
+                'We\'re sad to see you go, but we wish you all the best in your future endeavors.',
+            duration: 5,
           );
 
           // Redirect
           Get.offAll(() => const LoginScreen());
-
         } else if (provider == 'password') {
           TFullScreenLoader.stopLoading();
           Get.to(() => const RemoveAccountScreen());
@@ -139,10 +144,9 @@ class UserController extends GetxController {
 
       // Show message success
       TLoaders.successSnackBar(
-          title: 'Account Deleted',
-          message:
-          'Your account has been successfully deleted. '
-              'We\'re sad to see you go, but we wish you all the best in your future endeavors.',
+        title: 'Account Deleted',
+        message: 'Your account has been successfully deleted. '
+            'We\'re sad to see you go, but we wish you all the best in your future endeavors.',
         duration: 5,
       );
 
@@ -151,6 +155,37 @@ class UserController extends GetxController {
     } catch (e) {
       TFullScreenLoader.stopLoading();
       TLoaders.errorSnackBar(title: 'Oh Snap!', message: e.toString());
+    }
+  }
+
+  // Upload Profile Image
+  uploadUserProfilePicture() async {
+    try {
+      final image = await ImagePicker().pickImage(
+        source: ImageSource.gallery,
+        imageQuality: 70,
+        maxHeight: 512,
+        maxWidth: 512,
+      );
+      if (image != null) {
+        imageUploading.value = true;
+
+        // Upload image
+        final imageUrl = await userRepository.uploadImage('Users/Images/Profile/', image);
+
+        // Update user image record
+        Map<String, dynamic> json = {'ProfilePicture': imageUrl};
+        await userRepository.updateSingleField(json);
+
+        user.value.profilePicture = imageUrl;
+        user.refresh();
+
+        TLoaders.successSnackBar(title: 'Congratulations', message: 'Your profile image has been update!');
+      }
+    } catch (e) {
+      TLoaders.errorSnackBar(title: 'Oh Snap!', message: 'Something went wrong: ${e.toString()}');
+    } finally {
+      imageUploading.value = false;
     }
   }
 }
